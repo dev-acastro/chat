@@ -24,12 +24,13 @@ $(document).ready(function(){
     $.ajax({
            type: "GET",
            url: "http://api.ringbyname.com/sms/conversation",
-           headers: { "X-Session-Id" : sessionId},
+          // headers: { "X-Session-Id" : sessionId},
+           beforeSend: function(request){
+            request.setRequestHeader("X-Session-Id", sessionId)
+           },
            success: function(data){
             console.log(data)
            },
-           dataType: "json",
-           contentType: "application/json"
          });
 
 
