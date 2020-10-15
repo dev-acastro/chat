@@ -38,25 +38,27 @@ $(document).ready(function(){
             },
             success: function (response){
                 var rows = response.data.rows;
-
-                Tabla(rows);
-
-
-            }
+                table(rows);
+                }
         });
     }
+    function table(response){
+
+        var indice = (response.length-1);
+        var muestra = (response.length-10);
 
 
 
+        for(var i = indice; i > muestra; i--){
+                color = response[i].is_read ? "lightgray" : ""
+                console.log(color);
+            $('#Mensajes tbody').after('<tr style="background-color: ' + color + '"><td> ' + response[i].contact_name + ' </td></tr>')
 
-    function Tabla (response){
-        response.forEach(function (item, index){
-            $('#Mensajes tbody').after('<tr><td> ' + item.contact_name + ' </td><td>  ' + item.last_message.message + ' </td><td><a  href="sms.php?id=' + item.contact_id + '" class="btn btn-primary" style="color: white">Ver Chat</a></td></tr>')
-        })
+        }
         datatables();
-
-
     }
+
+
 
 
 

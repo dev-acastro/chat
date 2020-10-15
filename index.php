@@ -248,8 +248,7 @@
                   <thead>
                   <tr>
                     <th>Contacto</th>
-                    <th>Ultimo Mensaje</th>
-                      <th>Accion</th>
+
 
                   </tr>
                   </thead>
@@ -259,8 +258,7 @@
                   <tfoot>
                   <tr>
                     <th>Contacto</th>
-                    <th>Ultimo Mensaje</th>
-                      <th>Accion</th>
+
                   </tr>
                   </tfoot>
                 </table>
@@ -270,8 +268,13 @@
             <!-- /.card -->
           </div>
           <!-- /.col -->
-            <div class="col-4" style="border: 1px solid black">
-
+            <div class="col-4" style="border: 1px solid lightgrey">
+                <div style="position: absolute; bottom: 0; height: 100px; width: 100%" >
+                    <form style="float: right">
+                        <input width="100%">
+                        <input type="submit"
+                    </form>
+                </div>
             </div>
 
         </div>
