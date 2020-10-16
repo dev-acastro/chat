@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ac1312b-222a-4c65-84c5-5e49f8d6a3e6" name="Default Changelist" comment="">
+    <list default="true" id="5ac1312b-222a-4c65-84c5-5e49f8d6a3e6" name="Default Changelist" comment="***/****">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/js/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/ajax.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
@@ -45,6 +45,7 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="714a6d8a-f069-4dcf-a9d4-d2f51626f436" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2" />
   <component name="ProjectId" id="1isQ0OdDMyZdYGemWD4ewQ841qo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -58,7 +59,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../reservas" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -83,6 +84,8 @@
       <updated>1602693596115</updated>
       <workItem from="1602693597167" duration="11898000" />
       <workItem from="1602733696692" duration="12830000" />
+      <workItem from="1602819263680" duration="267000" />
+      <workItem from="1602819588343" duration="11778000" />
     </task>
     <task id="LOCAL-00001" summary="Primer Commit">
       <created>1602715082021</created>
@@ -98,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602715498543</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="***/****">
+      <created>1602805774241</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602805774241</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,9 +129,18 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Primer Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primer Commit" />
+    <MESSAGE value="***/****" />
+    <option name="LAST_COMMIT_MESSAGE" value="***/****" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="263" y="19" key="#CLI_Interpreters" timestamp="1602819922706">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="263" y="19" key="#CLI_Interpreters/0.0.1366.728/1366.0.1366.768@0.0.1366.728" timestamp="1602819922706" />
+    <state x="390" y="7" key="#PHP" timestamp="1602819926331">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="390" y="7" key="#PHP/0.0.1366.728/1366.0.1366.768@0.0.1366.728" timestamp="1602819926331" />
     <state x="-1186" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602695145777">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -130,6 +149,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1351" y="83" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602715497922" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1602807892389">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.768@0.0.1366.728" timestamp="1602807892389" />
     <state x="-1475" y="165" key="SettingsEditor" timestamp="1602715150734">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>

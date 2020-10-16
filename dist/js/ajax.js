@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
-    function mensaje(id){
-        console.log(id);
-
-    }
-
+    var sessionId;
+    var t = $("#Mensajes").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+    });
     var data = JSON.stringify({
                                 "data": {
                                   "username": "armicasdi@gmail.com",
@@ -12,7 +12,9 @@ $(document).ready(function(){
                                 }
                               });
 
-      var sessionId;
+    function mensaje(id){
+        console.log(id);
+    }
 
      $.ajax({
        type: "POST",
@@ -27,44 +29,42 @@ $(document).ready(function(){
      });
 
     function conversations(id){
-        sessionId = id;
-
-        $.ajax({
+        //sessionId = id;
+       var resultadoConversaciones =  $.ajax({
             type: "GET",
             url: "http://api.ringbyname.com/sms/conversation",
             // headers: { "X-Session-Id" : sessionId},
             beforeSend: function(request){
-                request.setRequestHeader("X-Session-Id", sessionId)
+                request.setRequestHeader("X-Session-Id", id)
             },
             success: function (response){
                 var rows = response.data.rows;
-                table(rows);
+                table(rows, sessionId);
                 }
         });
     }
-    function table(response){
 
-        var indice = (response.length-1);
-        var muestra = (response.length-10);
-
-
-
-        for(var i = indice; i > muestra; i--){
-                color = response[i].is_read ? "lightgray" : ""
-                console.log(color);
-            $('#Mensajes tbody').after('<tr style="background-color: ' + color + '"><td> ' + response[i].contact_name + ' </td></tr>')
-
+    function table(response, sessionId){
+        for(var i = 0; i < response.length; i++){
+            id = response[i].id
+            sId = sessionId
+            t.row.add([ "<span onclick='mensaje(sId, "+id+")'>"+response[i].contact_name+"</span>" ,  response[i].contact_phone_number , response[i].last_message.date_created ]);
         }
-        datatables();
+        //var muestra = (response.length-10);
+        /*for(var i = indice; i > 0; i--){
+            console.log(indice)
+                color = response[i].is_read ? "" : "lightgray"
+                id = response[i].id
+
+            tr = $('#Mensajes tbody').after('<tr onclick="message(' + id + ' , ' + sessionId + ')" style="background-color: ' + color + '"><td> ' + response[i].contact_name + '   <span style="float: right">  ' + response[i].date_created+  '</span> </td></tr>')
+
+            t.row.add([tr])
+        }*/
+
+        t.draw();
+
+
     }
-
-
-
-
-
-
-
-
 
 
 })
