@@ -83,8 +83,16 @@
             <!-- /.card -->
           </div>
           <!-- /.col -->
-            <div id="messagesWrapper" class="col-6" style="border: 1px solid lightgrey; height: 80vh; overflow-y: scroll">
-
+            <div class="col-6" style="height: 80vh; border: 1px solid lightgrey;">
+            <div id="messagesWrapper" class="col-12" style=" height: 70vh; overflow-y: scroll">
+            </div>
+            <div class="col-12" style="width: 100%; height: 100px; ">
+            <form id="enviar" >
+                <input type="text"  name="message" style="width: 80%; padding: 20px 30px; margin: 10px; ">
+                <input id="message_id" type="hidden"  name="convo_id" value="" >
+                <input  class="btn btn-primary" type="submit" style="width: 10%">
+            </form>
+            </div>
             </div>
 
         </div>
@@ -97,17 +105,11 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.5
-    </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
+
   </footer>
 
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
+
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
@@ -157,23 +159,29 @@
                 request.setRequestHeader("X-Session-Id", sessionId)
             },
             success: function (response){
-
-
-
-                rows = response.data.rows
-                console.log(rows)
-
+                rows = response.data.rows                
+                last_index = rows.length -1;
+                convo_id = rows[last_index].conversation.id;
+                console.log(rows);
                   for(let y = 0; y < rows.length; y++){
-
                       let mensaje = rows[y].message
                       inbound = rows[y].is_inbound ? "left" : "right"
                       backcolor = rows[y].is_inbound ? "lightgreen" : "lightblue"
 
-                      $("#mensaje").before('<div class="col-6" style="margin: 10px 0;clear:both; float:'+ inbound + '; background-color: '+ backcolor + ' " >' + mensaje + '</div>')
+                      $("#mensaje").before('<div class="col-4" style="margin: 20px 10px; padding:20px 20px; clear:both; float:'+ inbound + '; background-color: '+ backcolor + ' " >' + mensaje + '</div>')
                   }
+
+                  fillForm(convo_id);
             }
 
         });
+
+
+    }
+
+    function fillForm(id){
+
+        $("input:hidden").val(id);
     }
 
 

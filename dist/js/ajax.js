@@ -61,7 +61,40 @@ $(document).ready(function(){
             t.row.add([tr])
         }*/
 
+
         t.draw();
+
+        $("#enviar").submit(function (e){
+            var formData = {'message':$('input[name=message]').val()}
+            let convo_id = $('input[name=convo_id]').val()
+
+            console.log(sessionId)
+
+
+            $.ajax({
+                   type: "formData",
+                   url: " http://api.ringbyname.com/sms/reply/"+message_reply_id,
+                   data: formData,
+                   beforeSend: function(request){
+                                   request.setRequestHeader("X-Session-Id", id),
+                                   request.setRequestheader('Access-Control-Allow-Origin:', '*'),
+                                   request.setRequestheader('Access-Control-Allow-Methods:', 'POST, GET, OPTIONS, PUT, DELETE'),
+                                   request.setRequestheader('Access-Control-Allow-Headers:', 'Origin, Content-Type, Accept, Authorization, X-Request-With')
+                               },
+                   success: function (response) {
+                        console.log(response)
+                   },
+                   dataType: "json",
+                   contentType: "application/json"
+                 });
+
+
+
+            e.preventDefault();
+        })
+
+
+
 
 
     }

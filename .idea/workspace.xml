@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ac1312b-222a-4c65-84c5-5e49f8d6a3e6" name="Default Changelist" comment="***/****">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/________.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/js/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/ajax.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
@@ -161,10 +162,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1384" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602715500028" />
-    <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602799439581">
+    <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602867238287">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602799439581" />
+    <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602867238287" />
     <state x="-1175" y="426" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602715205753">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
