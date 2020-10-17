@@ -159,17 +159,21 @@
                 request.setRequestHeader("X-Session-Id", sessionId)
             },
             success: function (response){
-                rows = response.data.rows                
+                rows = response.data.rows
                 last_index = rows.length -1;
                 convo_id = rows[last_index].conversation.id;
-                console.log(rows);
+                console.log(sessionId)
+
                   for(let y = 0; y < rows.length; y++){
                       let mensaje = rows[y].message
+                      let date = rows[y].date_created
                       inbound = rows[y].is_inbound ? "left" : "right"
                       backcolor = rows[y].is_inbound ? "lightgreen" : "lightblue"
 
-                      $("#mensaje").before('<div class="col-4" style="margin: 20px 10px; padding:20px 20px; clear:both; float:'+ inbound + '; background-color: '+ backcolor + ' " >' + mensaje + '</div>')
+                      $("#mensaje").before('<div class="col-4 mensaje" style="margin: 20px 10px; padding:20px 20px; clear:both; float:'+ inbound + '; background-color: '+ backcolor + ' " >' + mensaje + '<p style="margin-top: 25px; clear:both; color: gray; font-size: 14px; float: right">' + date + '</p></div>')
                   }
+
+               $('#messagesWrapper').animate({scrollTop:$('#messagesWrapper').prop("scrollHeight")}, 2500);
 
                   fillForm(convo_id);
             }
