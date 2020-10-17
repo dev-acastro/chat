@@ -164,6 +164,11 @@
                 convo_id = rows[last_index].conversation.id;
                 console.log(sessionId)
 
+                /* const date = new Date("2020-09-06 20:15:49");
+                let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour12:false }
+                const month = date.toLocaleString('default', options);
+                const time = date.toLocaleTimeString('en-US'); */
+
                   for(let y = 0; y < rows.length; y++){
                       let mensaje = rows[y].message
                       let date = rows[y].date_created
