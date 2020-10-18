@@ -44,9 +44,13 @@ $(document).ready(function(){
 
     function table(response, sessionId) {
         for (var i = 0; i < response.length; i++) {
+            let date = new Date(response[i].last_message.date_created);
+            let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour12:false }
+            let dateFormated = date.toLocaleString('default', options);
+            let time = date.toLocaleTimeString('en-US');
             id = response[i].id
             sId = sessionId
-            t.row.add(["<span onclick='mensaje(sId, " + id + ")'>" + response[i].contact_name + "</span>", response[i].contact_phone_number, response[i].last_message.date_created]);
+            t.row.add(["<span onclick='mensaje(sId, " + id + ")'>" + response[i].contact_name + "</span>", response[i].contact_phone_number, dateFormated + "  " + time]);
         }
         t.draw();
 

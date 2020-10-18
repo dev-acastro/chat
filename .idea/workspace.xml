@@ -19,8 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ac1312b-222a-4c65-84c5-5e49f8d6a3e6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/________.xml" afterDir="false" />
+    <list default="true" id="5ac1312b-222a-4c65-84c5-5e49f8d6a3e6" name="Default Changelist" comment="Formating Date">
+      <change afterPath="$PROJECT_DIR$/dist/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/js/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/ajax.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
@@ -37,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -61,6 +62,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../reservas" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -87,6 +89,7 @@
       <workItem from="1602733696692" duration="12830000" />
       <workItem from="1602819263680" duration="267000" />
       <workItem from="1602819588343" duration="11778000" />
+      <workItem from="1602990518592" duration="4776000" />
     </task>
     <task id="LOCAL-00001" summary="Primer Commit">
       <created>1602715082021</created>
@@ -116,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602872475983</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Formating Date">
+      <created>1602902417900</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602902417900</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +149,8 @@
     <MESSAGE value="Primer Commit" />
     <MESSAGE value="***/****" />
     <MESSAGE value="Send Ready / Testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Send Ready / Testing" />
+    <MESSAGE value="Formating Date" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formating Date" />
   </component>
   <component name="WindowStateProjectService">
     <state x="263" y="19" key="#CLI_Interpreters" timestamp="1602819922706">
@@ -166,13 +177,15 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1475" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602715150734" />
-    <state x="-1384" y="240" key="Vcs.Push.Dialog.v2" timestamp="1602872477598">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="381" y="168" key="Vcs.Push.Dialog.v2" timestamp="1602902421175">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="381" y="168" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602902421175" />
     <state x="-1384" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602872477598" />
-    <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602867238287">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="553" y="304" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602990524633">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="553" y="304" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.0.1366.768@0.0.1366.728" timestamp="1602990524633" />
     <state x="-1143" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1602867238287" />
     <state x="-1175" y="426" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602715205753">
       <screen x="-1920" y="0" width="1920" height="1040" />

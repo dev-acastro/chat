@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="dist/css/custom.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
@@ -50,8 +51,8 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-6">
+        <div class="row rowContainer" >
+          <div class="col-md-6 dataTableContainer" >
 
             <div class="card">
               <div class="card-header">
@@ -83,14 +84,14 @@
             <!-- /.card -->
           </div>
           <!-- /.col -->
-            <div class="col-6" style="height: 80vh; border: 1px solid lightgrey;">
+            <div class="col-md-6" id="MovedWraper" style="height: 90vh; border: 1px solid lightgrey; background-color: white">
             <div id="messagesWrapper" class="col-12" style=" height: 70vh; overflow-y: scroll">
             </div>
             <div class="col-12" style="width: 100%; height: 100px; ">
             <form id="enviar" >
-                <input type="text"  name="message" style="width: 80%; padding: 20px 30px; margin: 10px; ">
+                <input type="text"  name="message" style="width: 100%; padding: 20px 30px; margin: 10px; ">
                 <input id="message_id" type="hidden"  name="convo_id" value="" >
-                <input  class="btn btn-primary" type="submit" style="width: 10%">
+                <input  class="col-12 btn btn-primary" type="submit">
             </form>
             </div>
             </div>
@@ -164,21 +165,29 @@
                 convo_id = rows[last_index].conversation.id;
                 console.log(sessionId)
 
-                /* const date = new Date("2020-09-06 20:15:49");
+                let date = new Date("2020-09-06 20:15:49");
                 let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour12:false }
-                const month = date.toLocaleString('default', options);
-                const time = date.toLocaleTimeString('en-US'); */
+                let dateFormated = date.toLocaleString('default', options);
+                let time = date.toLocaleTimeString('en-US');
 
                   for(let y = 0; y < rows.length; y++){
                       let mensaje = rows[y].message
-                      let date = rows[y].date_created
+
+                      let date = new Date(rows[y].date_created);
+                      let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour12:false }
+                      let dateFormated = date.toLocaleString('default', options);
+                      let time = date.toLocaleTimeString('en-US');
+
+
                       inbound = rows[y].is_inbound ? "left" : "right"
                       backcolor = rows[y].is_inbound ? "lightgreen" : "lightblue"
 
-                      $("#mensaje").before('<div class="col-4 mensaje" style="margin: 20px 10px; padding:20px 20px; clear:both; float:'+ inbound + '; background-color: '+ backcolor + ' " >' + mensaje + '<p style="margin-top: 25px; clear:both; color: gray; font-size: 14px; float: right">' + date + '</p></div>')
+                      $("#mensaje").before('<div class="col-6 mensaje" style="margin: 20px 10px; padding:20px 20px 10px 20px; clear:both; float:'+ inbound + '; background-color: '+ backcolor + ' " >' + mensaje + '<p style="margin: 15px 0 0 0; clear:both; color: gray; font-size: 14px; float: right">' + dateFormated + '</p><p style="margin: 0px 0 0 0; clear:both; color: gray; font-size: 14px; float: right">' + time + '</p></div>')
                   }
 
                $('#messagesWrapper').animate({scrollTop:$('#messagesWrapper').prop("scrollHeight")}, 2500);
+                $('#MovedWraper').animate({left:0}, 1000);
+
 
                   fillForm(convo_id);
             }
