@@ -86,13 +86,22 @@ $(document).ready(function(){
 
       $("#mensaje").before('<div class="col-6 mensaje" style="margin: 20px 10px; padding:20px 20px 10px 20px; clear:both; float:right; background-color: lightblue " >' + mensaje + '<p style="margin: 15px 0 0 0; clear:both; color: gray; font-size: 14px; float: right">' + dateFormated + '</p><p style="margin: 0px 0 0 0; clear:both; color: gray; font-size: 14px; float: right">' + time + '</p></div>')
         $('#messagesWrapper').animate({scrollTop:$('#messagesWrapper').prop("scrollHeight")}, 2500);
+        $("input[name=message]").val("")
 
     }
 
 
     $("#close").click(function(){
         $('#MovedWraper').animate({left:'100vw'}, 1000);
+        $('.overlay').hide(1000);
     })
+
+    $("#wrapper").click(function(){
+            $('#MovedWraper').animate({left:'100vw'}, 1000);
+            $('.overlay').hide(1000);
+        })
+
+
 
 
 })

@@ -25,6 +25,10 @@
 
 </head>
 <body class="hold-transition sidebar-mini">
+
+
+
+
 <div class="wrapper">
 
 
@@ -83,19 +87,21 @@
             </div>
             <!-- /.card -->
           </div>
+            <div class="overlay"></div>
           <!-- /.col -->
-            <div class="col-md-8" id="MovedWraper" style="height: 90vh; border: 1px solid lightgrey; background-color: white">
-                <div class="actionBar"><i class="fas fa-arrow-left " id="close" style="color: #004a99;float: right; font-size: 30px;"></i></div>
-            <div id="messagesWrapper" class="col-12" style=" height: 60%; overflow-y: scroll; ">
+            <div class="col-md-8" id="MovedWraper" style=" border: 1px solid lightgrey; background-color: white">
+                <div class="actionBar"><i class="fas fa-arrow-left " id="close" style="height:10%; color: white;float: right; font-size: 30px;"></i></div>
+                <div id="messagesWrapper" class="col-12" style=" height: 70%; overflow-y: scroll; ">
+                </div>
+                <div class="col-12" style="width: 100%; height: 20%; border-top: 1px solid #888; padding-top: 20px; ">
+                    <form id="enviar" >
+                        <input type="text"  name="message" style="width: 100%; padding: 20px 30px;">
+                        <input id="message_id" type="hidden"  name="convo_id" value="" >
+                        <input  class="col-12 btn btn-primary" type="submit" style="margin-top: 10px;">
+                    </form>
+                </div>
             </div>
-            <div class="col-12" style="width: 100%; height: 100px; ">
-            <form id="enviar" >
-                <input type="text"  name="message" style="width: 100%; padding: 20px 30px; margin: 10px; ">
-                <input id="message_id" type="hidden"  name="convo_id" value="" >
-                <input  class="col-12 btn btn-primary" type="submit">
-            </form>
-            </div>
-            </div>
+
 
         </div>
         <!-- /.row -->
@@ -187,6 +193,7 @@
 
                $('#messagesWrapper').animate({scrollTop:$('#messagesWrapper').prop("scrollHeight")}, 2500);
                 $('#MovedWraper').animate({left:0}, 1000);
+                $('.overlay').show(1000);
 
 
                   fillForm(convo_id);
