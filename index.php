@@ -52,7 +52,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row rowContainer" >
-          <div class="col-md-6 dataTableContainer" >
+          <div class="col-12 dataTableContainer" >
 
             <div class="card">
               <div class="card-header">
@@ -84,8 +84,9 @@
             <!-- /.card -->
           </div>
           <!-- /.col -->
-            <div class="col-md-6" id="MovedWraper" style="height: 90vh; border: 1px solid lightgrey; background-color: white">
-            <div id="messagesWrapper" class="col-12" style=" height: 70vh; overflow-y: scroll">
+            <div class="col-md-8" id="MovedWraper" style="height: 90vh; border: 1px solid lightgrey; background-color: white">
+                <div class="actionBar"><i class="fas fa-arrow-left " id="close" style="color: #004a99;float: right; font-size: 30px;"></i></div>
+            <div id="messagesWrapper" class="col-12" style=" height: 60%; overflow-y: scroll; ">
             </div>
             <div class="col-12" style="width: 100%; height: 100px; ">
             <form id="enviar" >
@@ -150,7 +151,6 @@
         $("#messagesWrapper").html(`<div id="mensaje"  class="mensaje" style="position: absolute; bottom: 0; height: 100px; width: 100%" >
 
                 </div>`)
-
 
         $.ajax({
             type: "GET",
