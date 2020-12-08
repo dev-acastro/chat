@@ -18,6 +18,10 @@ $(document).ready(function(){
        type: "POST",
        url: " http://api.ringbyname.com/auth",
        data: data,
+       beforeSend: function(request){   
+                       $('.overlay').show();
+                       $(".loader").show();
+                   },
        success: function (response) {
            sessionId = response.data.session_id;
            conversations(sessionId);
@@ -33,7 +37,11 @@ $(document).ready(function(){
             url: "http://api.ringbyname.com/sms/conversation",
             // headers: { "X-Session-Id" : sessionId},
             beforeSend: function(request){
-                request.setRequestHeader("X-Session-Id", id)
+                request.setRequestHeader("X-Session-Id", id),
+            },
+            complete: function(){
+                $(".loader").hide();
+                $('.overlay').hide();
             },
             success: function (response){
                 var rows = response.data.rows;

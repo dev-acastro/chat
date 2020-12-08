@@ -88,6 +88,7 @@
             <!-- /.card -->
           </div>
             <div class="overlay"></div>
+            <div class="loader"></div>
           <!-- /.col -->
             <div class="col-md-8" id="MovedWraper" style=" border: 1px solid lightgrey; background-color: white">
                 <div class="actionBar"><i class="fas fa-arrow-left " id="close" style="height:10%; color: white;float: right; font-size: 30px;"></i></div>
