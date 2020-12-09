@@ -1,13 +1,11 @@
-<?php /*
-    include 'include/funciones.php';
-*/?>
+
 
 <!doctype html>
 <html lang="en">
 
 <head>
 
-<!--    --><?php //include 'head.php'; ?>
+<!--    -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css" integrity="sha512-BMbq2It2D3J17/C7aRklzOODG1IQ3+MHw3ifzBHMBwGO/0yUqYmsStgBjI0z5EYlaDEFnvYV7gNYdD3vFLRKsA==" crossorigin="anonymous" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous" />
@@ -18,13 +16,37 @@
             background: linear-gradient(to right, #4A00E0, #8E2DE2);
             color: white;
         }
+        *{
+            box-sizing: border-box
+        }
+
+        .blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+    
     </style>
 
 </head>
 
 <body>
 
-<div class="wrapper" style="margin-top: 100px; padding: 10px;">
+<div class="wrapper" style="margin-top: 20px; padding: 10px;">
+    <div id="newMsg" style="display:none; width: 40%; height: 30px; background-color: red; color: white; padding: 0 50px 0 50px;margin: 20px 20px">
+        <span>Hay Mensajes Nuevos en Bandeja
+           
+        </span>
+        <span style="float: right;">
+            <i class="fas fa-sync reload"></i>
+            <i class="fas fa-times closeNew"></i>
+        </span>
+
+        
+
+    </div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="margin: 0">
 
@@ -38,16 +60,17 @@
 
                         <div class="card">
                             <div class="card-header">Messages</div>
-
+                            <a id="new" class="btn btn-primary" style="float: right">Nuevo Mensaje</a>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <a id="new" class="btn btn-primary" style="float: right">Nuevo Mensaje</a>
+                               
                                 <table id="Mensajes" class="table table-striped table-borderless">
                                     <thead>
                                         <tr>
                                             <th>Contact</th>
                                             <th>Phone</th>
                                             <th>Date</th>
+                                            <th style="display:none;"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -57,6 +80,7 @@
                                             <th>Contact</th>
                                             <th>Phone</th>
                                             <th>Date</th>
+                                            <th style="display:none;"></th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -71,7 +95,7 @@
 
                     <div class="col-md-6" id="newDialog"
                          style="height: 90vh; border: 1px solid lightgrey; background-color: white; display: none">
-                        <div id="messagesWrapper" class="col-12"
+                        <div id="newMessagesWrapper" class="col-12"
                              style=" height: 70vh; overflow-y: scroll">
                         </div>
                         <div class="col-12" style="width: 100%; height: 100px; ">
@@ -86,14 +110,14 @@
                         </div>
                     </div>
                     <div class="col-md-6" id="MovedWraper"
-                        style="height: 90vh; border: 1px solid lightgrey; background-color: white">
+                        style="height: 90vh; border: 1px solid lightgrey; background-color: white; padding: 10px 10px 10px 10px ;">
                         <div id="messagesWrapper" class="col-12"
-                            style=" height: 70vh; overflow-y: scroll">
+                            style=" height: 70%; overflow-y: scroll; border: 1px solid lightgray; overflow-x: hidden;">
                         </div>
-                        <div class="col-12" style="width: 100%; height: 100px; ">
+                        <div class="col-12" style="width: 100%; height: 30%; border: 1px solid lightgray; margin: 10px 0 10px 0;">
                             <form id="enviar">
                                 <input type="text" name="message"
-                                    style="width: 100%; padding: 20px 30px; margin: 10px; ">
+                                    style="width: 100%; padding: 20px 30px; margin: 10px 0 10px 0; ">
                                 <input id="message_id" type="hidden" name="convo_id" value="">
                                 <input class="col-12 btn btn-primary" type="submit">
                             </form>
@@ -147,6 +171,17 @@
 <script>
         $(document).ready(function () {
 
+            $(".reload").click(function () {
+                location.reload();
+
+            })
+
+            $(".closeNew").click(function () {
+                $("#newMsg").hide();
+            })
+
+
+
             $("#new").click(function (){
 
 
@@ -154,13 +189,21 @@
                 $("#MovedWraper").hide();
             })
 
-            var sessionId;
+            
             var t = $("#Mensajes").DataTable({
+                "columnDefs": [
+            {
+                "targets": [ 3 ],
+                "visible": false,
+                "searchable": false
+            },
+            
+        ],
                 "responsive": true,
                 "autoWidth": false,
-                /* "order": [
-                        [2, "desc"]
-                    ] */
+                 "order": [
+                        [3, "desc"]
+                    ] 
             });
             
             var data = JSON.stringify({
@@ -170,7 +213,7 @@
                 }
             });
 
-
+            var sessionId;
 
             $.ajax({
                 type: "POST",
@@ -179,6 +222,26 @@
                 success: function (response) {
                     sessionId = response.data.session_id;
                     conversations(sessionId);
+                    
+                    window.setInterval(function () {
+                           
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.ringbyname.com/sms/conversation",
+                    // headers: { "X-Session-Id" : sessionId},
+                    beforeSend: function (request) {
+                        request.setRequestHeader("X-Session-Id", sessionId)
+                    },
+                    success: function (response) {
+                        var rows = response.data.rows;
+                        let i= rows.length-1                        
+                        if(rows[i].last_message.is_inbound && !rows[i].is_read){
+                            $("#newMsg").show();
+                        }                       
+                        
+                    }
+                });
+                        }, 60000) ;
                 },
                 dataType: "json",
                 contentType: "application/json"
@@ -194,19 +257,22 @@
                         request.setRequestHeader("X-Session-Id", id)
                     },
                     success: function (response) {
-                        var rows = response.data.rows;
+                        var rows = response.data.rows;                        
                         table(rows, sessionId);
+                        console.log(rows);
+                        
                     }
                 });
             }
 
             function table(response, sessionId) {
+                
                 for (var i = 0; i < response.length; i++) {
                     let date = new Date(response[i].last_message.date_created);
                     let options = {
-                        weekday: 'long',
+                        weekday: 'short',
                         year: 'numeric',
-                        month: 'long',
+                        month: 'short',
                         day: 'numeric',
                         hour12: false
                     }
@@ -214,14 +280,18 @@
                     let time = date.toLocaleTimeString('en-US');
                     id = response[i].id
                     sId = sessionId
-                    t.row.add(["<span style='cursor: pointer;' onclick='mensaje(sId, " + id + ")'><b>" + response[i].contact_name +
-                        "</b></span>", response[i].contact_phone_number, dateFormated + "  " + time
+                    read= response[i].is_read;
+                    let readDot = read ?  '<span style="color:red" class="blink_me"><i class="fas fa-circle"></i></span>'  : '' ;                  
+                    t.row.add([readDot +"<span style='cursor: pointer;' onclick='mensaje(sId, " + id + ")'><b>" + response[i].contact_name +
+                        "</b></span>", read, dateFormated + "  " + time, date
                     ]);
                 }
                 t.draw();
 
 
             }
+
+            
 
             $("#enviar").submit(function (e) {
                 e.preventDefault();
@@ -266,13 +336,16 @@
                     beforeSend: function (request) {
                         request.setRequestHeader("X-Session-Id", sessionId)
                     },
-                    success: mensaje(sessionId, convo_id),
+                    success: function (response) {                     
+                    },
                     dataType: "json",
                     contentType: "application/json"
                 });
 
-                mensajeReload(sessionId, convo_id)
+                //mensajeReload(sessionId, convo_id)
             })
+
+            
 
             function mensajeReload(sessionId, id) {
                 $("#messagesWrapper").html(`<div id="mensaje"  class="mensaje" style="position: absolute; bottom: 0; height: 100px; width: 100%" >
@@ -331,6 +404,10 @@
         })
 
         function mensaje(sessionId, id) {
+
+
+            $("#newDialog").hide();
+                $("#MovedWraper").show();
 
             $("#messagesWrapper").html(`<div id="mensaje"  class="mensaje" style="position: absolute; bottom: 0; height: 100px; width: 100%" >
 
