@@ -63,6 +63,12 @@
                 <h3 class="card-title">Mensajes RingByName</h3>
               </div>
               <!-- /.card-header -->
+
+              <div class="col-md-12" style="background-color: #0b2e13">
+                <a class="list-group">
+                    Intentando
+                </a>
+              </div>
               <div class="card-body">
                 <table id="Mensajes" class="table table-bordered table-striped">
                   <thead>
